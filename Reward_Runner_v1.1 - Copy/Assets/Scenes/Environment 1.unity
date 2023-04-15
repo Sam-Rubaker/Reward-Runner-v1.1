@@ -8564,7 +8564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f679e8373319e1345b5a75511897c73f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f679e8373319e1345b5a75511897c73f, type: 3}
@@ -8875,7 +8875,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 100
+  far clip plane: 50
   field of view: 77.55214
   orthographic: 0
   orthographic size: 5
