@@ -9,6 +9,7 @@ TagManager:
   - CollisionDetect
   - Box
   - SightDetect
+  - Reward
   layers:
   - Default
   - TransparentFX

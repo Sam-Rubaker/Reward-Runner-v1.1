@@ -21,10 +21,10 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         // Debug.Log(other.gameObject.tag);
         // Debug.Log(other.gameObject.name);
-        if (other.gameObject.tag == "Player"){
+        if (other.gameObject.tag == "Reward"){
             gm.UpdateScore(+50);
             impactSound.Play();
-            // Debug.Log("Detected");
+            Debug.Log("Detected");
             Destroy(gameObject);
 
         }

@@ -24,7 +24,7 @@ public class RecordPosition : MonoBehaviour
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "Test_Alaa4-4\\";
+        string subjectID = "Test_417\\";
         string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
         string countPath = subjectFolder + "count.csv";
         
