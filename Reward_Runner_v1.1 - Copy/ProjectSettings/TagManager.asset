@@ -10,6 +10,9 @@ TagManager:
   - Box
   - SightDetect
   - Reward
+  - High
+  - Med
+  - Low
   layers:
   - Default
   - TransparentFX

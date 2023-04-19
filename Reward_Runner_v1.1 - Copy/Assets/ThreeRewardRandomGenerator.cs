@@ -2,46 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectGenerator : MonoBehaviour
+public class ThreeRewardRandomGenerator : MonoBehaviour
 {
-    public GameObject[] rewardPrefabs;
+    public GameObject highReward;
+    public GameObject medReward;
+    public GameObject lowReward;
+
     public GameObject[] shellPrefabs;
     public float objectSpacing = 50.0f;
     public float shellVisibleRange = 50.0f;
     public float rewardVisibleRange = 50.0f;
     public GameObject targetPrefab;
-    public Mesh mesh;
-    public MeshFilter meshfilter;
- 
+
     private GameObject[] rewards;
     private GameObject[] shells;
     private float[] rewardDistances;
     private float[] shellDistances;
     public int currentObjectIndex = 0;
    
+    public Mesh mesh;
+    public MeshFilter meshfilter;
     
-    
- 
     void Start()
     {
+        // Create a list of the possible rewards
+        List<GameObject> rewardTypes = new List<GameObject>();
+        rewardTypes.AddRange(new GameObject[] 
+        {   
+            highReward, highReward, highReward, highReward, highReward, highReward, highReward,
+            medReward, medReward,
+            lowReward
+        });
+
+        ShuffleList(rewardTypes);
+
         // instantiate rewards and shells
-        rewards = new GameObject[rewardPrefabs.Length];
+        rewards = new GameObject[rewardTypes.Count];
         shells = new GameObject[shellPrefabs.Length];
         rewardDistances = new float[rewards.Length];
         shellDistances = new float[shells.Length];
 
-        for (int i = 0; i < rewards.Length; i++)
+        for (int i = 0; i < rewardTypes.Count; i++)
             {
-                GameObject newReward = Instantiate(rewardPrefabs[i], transform.position + new Vector3(-i * objectSpacing, 1.0f, 0.0f), Quaternion.identity, transform);
+                GameObject newReward = Instantiate(rewardTypes[i], transform.position + new Vector3(-i * objectSpacing, 1.0f, 0.0f), Quaternion.identity, transform);
                 newReward.transform.SetParent(transform);
                 newReward.SetActive(false);
                 newReward.AddComponent<MeshFilter>();
                 newReward.AddComponent<MeshRenderer>();
-                
+
                 // give each reward a rigid body and box collider and a tag
                 Rigidbody rb = newReward.AddComponent<Rigidbody>();
                 rb.useGravity = false;
-                newReward.tag = "Obstacle";
+                if (rewardTypes[i] == highReward)
+                {
+                    newReward.tag = "High";
+                }
+                else if (rewardTypes[i] == medReward)
+                {
+                    newReward.tag = "Med";
+                }
+                else if (rewardTypes[i] == lowReward)
+                {
+                    newReward.tag = "Low";
+                }
                 
                 BoxCollider collider = newReward.AddComponent<BoxCollider>();
                 collider.isTrigger = true;
@@ -87,6 +110,17 @@ public class ObjectGenerator : MonoBehaviour
         }
         
 
+    }
+
+    void ShuffleList(List<GameObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject temp = list[i];
+            int randomIndex = Random.Range(i,list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
     }
     
     

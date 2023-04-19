@@ -26,7 +26,7 @@ public class GameManager1 : MonoBehaviour
 
     public void UpdateScore(int update){
         //update ui text score box
-        print("ehre");
+        //print("ehre");
         //scoreBox.tezxt = "Hello World";
         score = update + score; //update score by 1
         scoreBox.text = score.ToString(); //display new score
