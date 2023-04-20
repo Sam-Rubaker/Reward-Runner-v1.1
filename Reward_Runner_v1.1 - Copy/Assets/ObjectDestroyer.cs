@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ObjectDestroyer : MonoBehaviour
 {
+    // Choose your audio sources for impacts
     public AudioSource highSound;
     public AudioSource medSound;
     public AudioSource lowSound;
-
+    
+    //
     public GameObject applePrefab;
-    public int numApplesToSpawn = 26;
+    //
+    public int numApplesToSpawn = 100; //This needs to >= number of rewards possible to collect. Janky, could be better.
     public Transform appleContainer;
     public Transform cartPosition;
 
     private List<GameObject> applePool;
-
 
     GameManager1 gm;
 
@@ -23,7 +25,8 @@ public class ObjectDestroyer : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager1>();
         applePool = new List<GameObject>();
         
-        for (int i = 0; i <numApplesToSpawn; i++)
+        // Generate the apples that will fill cart and make invisible initially
+        for (int i = 0; i < numApplesToSpawn; i++)
         {
             GameObject apple = Instantiate(applePrefab);
             apple.transform.SetParent(transform);
@@ -50,16 +53,10 @@ public class ObjectDestroyer : MonoBehaviour
         Rigidbody rb = containerApple.GetComponent<Rigidbody>();
         rb.useGravity = true;
         
-
-        //disperse collected apples
-        // int numApplesInCart = appleContainer.childCount;
-        // float xOffset = -(numApplesInCart - 1) *0.5f * appleContainer.GetChild(0).localScale.x;
-        // containerApple.transform.localPosition += new Vector3(xOffset + (numApplesInCart - 1) * appleContainer.GetChild(0).localScale.x, 0, 0);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        // Debug.Log(other.gameObject.tag);
-        // Debug.Log(other.gameObject.name);
+    private void OnTriggerEnter(Collider other) 
+    {
         if (other.gameObject.tag == "High"){
             gm.UpdateScore(+15);
             highSound.Play();
@@ -68,8 +65,8 @@ public class ObjectDestroyer : MonoBehaviour
             CollectApple(other.gameObject);
             CollectApple(other.gameObject);
             CollectApple(other.gameObject);
-
         }
+
         else if (other.gameObject.tag == "Med"){
             gm.UpdateScore(+10);
             medSound.Play();
@@ -77,18 +74,15 @@ public class ObjectDestroyer : MonoBehaviour
             other.gameObject.SetActive(false);
             CollectApple(other.gameObject);
             CollectApple(other.gameObject);
-
         }
+
         else if (other.gameObject.tag == "Low"){
             gm.UpdateScore(+5);
             lowSound.Play();
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);
             CollectApple(other.gameObject);
-
-        }
-        //Debug.Log("Detected");
-        //Debug.Log(other.gameObject.name);
+        }  
     }
 }
 

@@ -19,12 +19,15 @@ public class RecordPosition : MonoBehaviour
 
     public int newCount = 0;
     public string sessionFolder;
-    public int rewardLog;
+    public int highRewardLog;
+    public int medRewardLog;
+    public int lowRewardLog;
+
     public int shellLog;
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "Test_417\\";
+        string subjectID = "Test_Protocol_v1\\";
         string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
         string countPath = subjectFolder + "count.csv";
         
@@ -85,13 +88,15 @@ public class RecordPosition : MonoBehaviour
         // LeftShoeRotation = GameObject.Find("LeftShoe").transform.eulerAngles;
         // RightShoePosition = GameObject.Find("RightShoe").transform.position;
         // RightShoeRotation = GameObject.Find("RightShoe").transform.eulerAngles;
-        rewardLog = GameObject.FindGameObjectsWithTag("CollisionDetect").Length;
-        shellLog = GameObject.FindGameObjectsWithTag("SightDetect").Length;
+        highRewardLog = GameObject.FindGameObjectsWithTag("High").Length;
+        medRewardLog = GameObject.FindGameObjectsWithTag("Med").Length;
+        lowRewardLog = GameObject.FindGameObjectsWithTag("Low").Length;
+        shellLog = GameObject.FindGameObjectsWithTag("Shell").Length;
 
 
         float quadX = QuadPosition.x;
-        float quadY = QuadPosition.y;
-        float quadZ = QuadPosition.z;
+        // float quadY = QuadPosition.y;
+        // float quadZ = QuadPosition.z;
 
         float questX = QuestPosition.x;
         float questY = QuestPosition.y;
@@ -117,7 +122,7 @@ public class RecordPosition : MonoBehaviour
         // Create csv headers that align with Foo class
         var records = new List<Foo>
         {
-            new Foo { Time = GetTimeStamp(),RewardLog = rewardLog, ShellLog = shellLog, QuadX = quadX,  QuadY = quadY,  QuadZ = quadZ, 
+            new Foo { Time = GetTimeStamp(),HighRewardLog = highRewardLog, MedRewardLog = medRewardLog, LowRewardLog = lowRewardLog, ShellLog = shellLog, QuadX = quadX,  //QuadY = quadY,  QuadZ = quadZ, 
                                             QuestX = questX, QuestY = questY, QuestZ = questZ}, // QuestRx = questRx, QuestRy = questRy, QuestRz = questRz,
                                             // LeftX = leftX, LeftY = leftY, LeftZ = leftZ, LeftRx = leftRx, LeftRy = leftRy, LeftRz = leftRz,
                                             // RightX = rightX, RightY = rightY, RightZ = rightZ, RightRx = rightRx, RightRy = rightRy, RightRz = rightRz},
@@ -141,12 +146,14 @@ public class RecordPosition : MonoBehaviour
         // LeftShoeRotation = GameObject.Find("LeftShoe").transform.eulerAngles;
         // RightShoePosition = GameObject.Find("RightShoe").transform.position;
         // RightShoeRotation = GameObject.Find("RightShoe").transform.eulerAngles;
-        rewardLog = GameObject.FindGameObjectsWithTag("CollisionDetect").Length;
-        shellLog = GameObject.FindGameObjectsWithTag("SightDetect").Length;
+        highRewardLog = GameObject.FindGameObjectsWithTag("High").Length;
+        medRewardLog = GameObject.FindGameObjectsWithTag("Med").Length;
+        lowRewardLog = GameObject.FindGameObjectsWithTag("Low").Length;
+        shellLog = GameObject.FindGameObjectsWithTag("Shell").Length;
 
         float quadX = QuadPosition.x;
-        float quadY = QuadPosition.y;
-        float quadZ = QuadPosition.z;
+        // float quadY = QuadPosition.y;
+        // float quadZ = QuadPosition.z;
 
         float questX = QuestPosition.x;
         float questY = QuestPosition.y;
@@ -171,7 +178,7 @@ public class RecordPosition : MonoBehaviour
 
         var records = new List<Foo>
         {
-            new Foo { Time = GetTimeStamp(), RewardLog = rewardLog, ShellLog = shellLog, QuadX = quadX,  QuadY = quadY,  QuadZ = quadZ,  
+            new Foo { Time = GetTimeStamp(), HighRewardLog = highRewardLog, MedRewardLog = medRewardLog, LowRewardLog = lowRewardLog, ShellLog = shellLog, QuadX = quadX,  //QuadY = quadY,  QuadZ = quadZ,  
                                             QuestX = questX, QuestY = questY, QuestZ = questZ}, // QuestRx = questRx, QuestRy = questRy, QuestRz = questRz,
                                             // LeftX = leftX, LeftY = leftY, LeftZ = leftZ, LeftRx = leftRx, LeftRy = leftRy, LeftRz = leftRz,
                                             // RightX = rightX, RightY = rightY, RightZ = rightZ, RightRx = rightRx, RightRy = rightRy, RightRz = rightRz},
@@ -214,12 +221,14 @@ public class RecordPosition : MonoBehaviour
     {
         public string Time { get; set; }
 
-        public int RewardLog {get; set; }
+        public int HighRewardLog {get; set; }
+        public int MedRewardLog {get; set; }
+        public int LowRewardLog {get; set; }
         public int ShellLog {get; set; }
 
         public float QuadX { get; set;}
-        public float QuadY { get; set;}
-        public float QuadZ { get; set;}
+        // public float QuadY { get; set;}
+        // public float QuadZ { get; set;}
 
         public float QuestX { get; set; }
         public float QuestY { get; set; }

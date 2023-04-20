@@ -13,6 +13,7 @@ TagManager:
   - High
   - Med
   - Low
+  - Shell
   layers:
   - Default
   - TransparentFX

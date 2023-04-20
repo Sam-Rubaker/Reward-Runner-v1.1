@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 3;
     public float jumpForce = 300;
     public float timeBeforeNextJump = 1.2f;
-    private float canJump = 0f;
+    //private float canJump = 0f;
     Animator anim;
     Rigidbody rb;
     
