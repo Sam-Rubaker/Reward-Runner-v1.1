@@ -36,7 +36,7 @@ public class readSocket : MonoBehaviour
           //UnityEngine.Debug.Log("timeSince is reading:" + timeSince);
        
           // Move the environment forward, 
-          this.transform.position += Vector3.right * tmSpeed * timeSince / 1000.0f;
+          this.transform.position += (Vector3.right * tmSpeed * timeSince) / 950.0f;
           timePer.Restart();
 
           if(!listener.Pending())                        
