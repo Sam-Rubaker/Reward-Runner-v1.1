@@ -39,6 +39,12 @@ public class ThreeRewardRandomGenerator : MonoBehaviour
         // Rich environment
         if (OneForRichTwoForPoor == 1)
         {
+            // List<GameObject> startRewards = new List<GameObject>();
+            // startRewards.AddRange(new GameObject[] 
+            // {   
+            //     highReward,  medReward, lowReward
+            // });
+
             // Create a list of the possible rewards
             List<GameObject> rewardTypes = new List<GameObject>();
             rewardTypes.AddRange(new GameObject[] 
@@ -108,7 +114,7 @@ public class ThreeRewardRandomGenerator : MonoBehaviour
         }
 
         // Poor environment - same as above
-        else
+        else if (OneForRichTwoForPoor == 2)
         {
             List<GameObject> rewardTypes = new List<GameObject>();
             rewardTypes.AddRange(new GameObject[] 
@@ -169,6 +175,11 @@ public class ThreeRewardRandomGenerator : MonoBehaviour
                 newShell.tag = "Shell";
             }
         }      
+
+        else 
+        {
+            
+        } 
     }
 
     void Update()

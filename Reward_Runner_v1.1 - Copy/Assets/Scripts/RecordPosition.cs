@@ -27,9 +27,9 @@ public class RecordPosition : MonoBehaviour
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "Test_Protocol_v2\\";
-        string subjectFolder = "E:\\Users\\jsamr\\OneDrive - UCB-O365\\Thesis Work\\PositionData\\" + subjectID;
-        // string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
+        string subjectID = "Test_Alaa427\\";
+        // string subjectFolder = "E:\\Users\\jsamr\\OneDrive - UCB-O365\\Thesis Work\\PositionData\\" + subjectID;
+        string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
         string countPath = subjectFolder + "count.csv";
         
         //Check to see if the directory already exists and if it does, add 1 to the count
@@ -261,7 +261,7 @@ public class RecordPosition : MonoBehaviour
     static string GetTimeStamp()
     {
         //return System.DateTime.Now.ToString();
-        return System.DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
+        return System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
 
     }
 

@@ -58,7 +58,7 @@ public class ObjectDestroyer : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "High"){
-            gm.UpdateScore(+15);
+            gm.UpdateScore(+50);
             highSound.Play();
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);
@@ -68,7 +68,7 @@ public class ObjectDestroyer : MonoBehaviour
         }
 
         else if (other.gameObject.tag == "Med"){
-            gm.UpdateScore(+10);
+            gm.UpdateScore(+25);
             medSound.Play();
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);

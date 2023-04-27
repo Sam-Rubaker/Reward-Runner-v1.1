@@ -28,7 +28,8 @@ public class readSocket : MonoBehaviour
           timePer.Start();
      }
 
-    //Update is called once per frame
+
+    //Update is called once per frame 
     void Update()
      {      
           timePer.Stop();  
@@ -36,7 +37,7 @@ public class readSocket : MonoBehaviour
           //UnityEngine.Debug.Log("timeSince is reading:" + timeSince);
        
           // Move the environment forward, 
-          this.transform.position += (Vector3.right * tmSpeed * timeSince) / 950.0f;
+          this.transform.position += Vector3.right * tmSpeed * timeSince / 955.0f;
           timePer.Restart();
 
           if(!listener.Pending())                        
