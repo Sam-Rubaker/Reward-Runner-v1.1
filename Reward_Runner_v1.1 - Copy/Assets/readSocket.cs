@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Net;
 using System.Net.Sockets;
 using System.Linq;
@@ -16,8 +17,12 @@ public class readSocket : MonoBehaviour
      //Use this for initialization of Unity as the listener
      TcpListener listener;
      float tmSpeed;
+    // float countdownTimer;
      Stopwatch timePer = new Stopwatch();
      float timeSince;
+
+     // public float timeRemaining = 10;
+     // public Text countdownText;
   
      // Start is called before the first frame update
      void Start()
@@ -52,9 +57,50 @@ public class readSocket : MonoBehaviour
           TcpClient client = listener.AcceptTcpClient();
           NetworkStream ns = client.GetStream();
           StreamReader reader = new StreamReader(ns);
+//////////////////////////////////////////////////////////////////////////////////////////////////
+          if (reader.Peek() >= 0)
+               {
+               string line = reader.ReadLine();
+               if (line != null)
+               {
+                    float value;
+                    if (float.TryParse(line, NumberStyles.Float, CultureInfo.InvariantCulture, out value))
+                    {
+                         if (value == 42)
+                         {
+                              UnityEngine.Debug.Log("Start Countdown timer");
+                              GameObject countdownTimer = GameObject.FindGameObjectWithTag("Timer");
+                              countdownTimer.SetActive(false);
+                         }
+                         else
+                         {
+                              tmSpeed = value;
+                         }
+                    }
+                    else
+                    {
+                         UnityEngine.Debug.Log("Could not parse float value");
+                    }
+               }
+          }
 
-          tmSpeed = float.Parse(reader.ReadLine(),CultureInfo.InvariantCulture.NumberFormat);
-          // UnityEngine.Debug.Log("tmSpeed is reading:" + tmSpeed);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+     //      if (float.Parse(reader.ReadLine(),CultureInfo.InvariantCulture.NumberFormat) == 42)
+     //      {
+     //           UnityEngine.Debug.Log("Start Countdown timer");
+     //           GameObject countdownTimer = GameObject.FindGameObjectWithTag("Timer");
+     //           countdownTimer.SetActive(false);
+     //      }
+     //      else
+     //      {
+     //           tmSpeed = float.Parse(reader.ReadLine(),CultureInfo.InvariantCulture.NumberFormat);
+
+     //      }
+     //     // countdownTimer = float.Parse(reader.ReadLine(),CultureInfo.InvariantCulture.NumberFormat);
+     //      //UnityEngine.Debug.Log("tmspeed" + tmSpeed);
 
           }
      }

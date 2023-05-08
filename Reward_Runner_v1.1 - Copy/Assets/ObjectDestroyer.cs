@@ -58,8 +58,8 @@ public class ObjectDestroyer : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "High"){
-            gm.UpdateScore(+50);
             highSound.Play();
+            gm.UpdateScore(+50);
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);
             CollectApple(other.gameObject);
@@ -68,8 +68,8 @@ public class ObjectDestroyer : MonoBehaviour
         }
 
         else if (other.gameObject.tag == "Med"){
+            medSound.Play();            
             gm.UpdateScore(+25);
-            medSound.Play();
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);
             CollectApple(other.gameObject);
@@ -77,8 +77,8 @@ public class ObjectDestroyer : MonoBehaviour
         }
 
         else if (other.gameObject.tag == "Low"){
-            gm.UpdateScore(+5);
             lowSound.Play();
+            gm.UpdateScore(+5);
             //Debug.Log("Detected");
             other.gameObject.SetActive(false);
             CollectApple(other.gameObject);
