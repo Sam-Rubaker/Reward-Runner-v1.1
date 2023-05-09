@@ -8,6 +8,8 @@ public class CountdownTimer : MonoBehaviour
     public float timeRemaining = 10;
     public Text countdownText;
     public GameObject objectToActivate;
+    public AudioSource timerWarning;
+
 
     bool timerStarted = false;
 
@@ -23,12 +25,14 @@ public class CountdownTimer : MonoBehaviour
         if (!objectToActivate.activeSelf && !timerStarted)
         {
             timerStarted = true;
+            timerWarning.Play();
         }
 
         if (timerStarted && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             countdownText.text = "Time Remaining: " + Mathf.Round(timeRemaining).ToString();
+
         }
         else if (timerStarted && timeRemaining <= 0)
         {

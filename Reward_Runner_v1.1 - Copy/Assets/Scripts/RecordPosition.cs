@@ -27,9 +27,11 @@ public class RecordPosition : MonoBehaviour
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "MMS\\";
+        string subjectID = "Testing\\";
         // string subjectFolder = "E:\\Users\\jsamr\\OneDrive - UCB-O365\\Thesis Work\\PositionData\\" + subjectID;
-        string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
+        // C:\\Users\\Vicon-OEM\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\
+        //string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
+        string subjectFolder = "C:\\Users\\Vicon-OEM\\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\" + subjectID;
         string countPath = subjectFolder + "count.csv";
         
         //Check to see if the directory already exists and if it does, add 1 to the count
