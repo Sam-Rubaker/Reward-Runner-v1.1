@@ -31,11 +31,12 @@ public class CountdownTimer : MonoBehaviour
         if (timerStarted && timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
-            countdownText.text = "Time Remaining: " + Mathf.Round(timeRemaining).ToString();
+            countdownText.text = "Time left: " + Mathf.Round(timeRemaining).ToString();
 
         }
         else if (timerStarted && timeRemaining <= 0)
         {
+            //timerWarning.Play();
             countdownText.text = "Time's up!";
             //objectToActivate.SetActive(true);
         }

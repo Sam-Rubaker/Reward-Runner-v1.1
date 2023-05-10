@@ -75,11 +75,11 @@ public delegate void ConnectionCallback(bool i_bConnected);
 
     if ( bLogSuccess )
     {
-      print("Writing log to " + ClientPathName + " and " + StreamPathName);
+      //print("Writing log to " + ClientPathName + " and " + StreamPathName);
     }
     else
     {
-      print("Failed to create logs: " + ClientPathName + ", " + StreamPathName);
+      //print("Failed to create logs: " + ClientPathName + ", " + StreamPathName);
     }
   }
 
@@ -96,17 +96,17 @@ public delegate void ConnectionCallback(bool i_bConnected);
       Output_ConfigureWireless WifiConfig = m_Client.ConfigureWireless();
       if (WifiConfig.Result != Result.Success)
       {
-        print("Failed to configure wireless: " + WifiConfig.ToString());
+        //print("Failed to configure wireless: " + WifiConfig.ToString());
       }
       else
       {
-        print("Configured adapter for wireless settings");
+        //print("Configured adapter for wireless settings");
       }
     }
 
-    print("Starting...");
+    //print("Starting...");
     Output_GetVersion OGV = m_Client.GetVersion();
-    print("Using Datastream version " + OGV.Major + "." + OGV.Minor + "." + OGV.Point + "." + OGV.Revision );
+    //print("Using Datastream version " + OGV.Major + "." + OGV.Minor + "." + OGV.Point + "." + OGV.Revision );
 
     if (Log)
     {
@@ -174,35 +174,35 @@ public delegate void ConnectionCallback(bool i_bConnected);
       CombinedHostnameString += HostWithPort;
     }
 
-    print("Connecting to " + CombinedHostnameString + "...");
+    //print("Connecting to " + CombinedHostnameString + "...");
 
     if (IsRetimed)
     {
       while ( bThreadRunning == true && !m_RetimingClient.IsConnected().Connected)
       {
         Output_Connect OC = m_RetimingClient.Connect(CombinedHostnameString);
-        print("Connect result: " + OC.Result);
+        //print("Connect result: " + OC.Result);
 
         System.Threading.Thread.Sleep(200);
       }
 
-      print("Connected using retimed client.");
+      //print("Connected using retimed client.");
 
       if (UseLightweightData)
       {
         // Retiming client will have segment data enabled by default
         if( m_RetimingClient.EnableLightweightSegmentData().Result == Result.Success )
         {
-          print("Using lightweight segment data");
+          //print("Using lightweight segment data");
         }
         else
         {
-          print("Unable to use lightweight segment data: Using standard segment data");
+          //print("Unable to use lightweight segment data: Using standard segment data");
         }
       }
       else
       {
-        print("Using standard segment data");
+        //print("Using standard segment data");
       }
 
       // get a frame from the data stream so we can inspect the list of subjects
@@ -217,7 +217,7 @@ public delegate void ConnectionCallback(bool i_bConnected);
     while ( bThreadRunning == true && !m_Client.IsConnected().Connected)
     {
       Output_Connect OC = m_Client.Connect(CombinedHostnameString);
-      print("Connect result: " + OC.Result);
+      //print("Connect result: " + OC.Result);
 
       System.Threading.Thread.Sleep(200);
     }
@@ -225,7 +225,7 @@ public delegate void ConnectionCallback(bool i_bConnected);
     if( UsePreFetch )
     {
       m_Client.SetStreamMode( StreamMode.ClientPullPreFetch );
-      print("Using pre-fetch streaming mode");
+      //print("Using pre-fetch streaming mode");
     }
     else
     {
@@ -240,17 +240,17 @@ public delegate void ConnectionCallback(bool i_bConnected);
     { 
       if( m_Client.EnableLightweightSegmentData().Result != Result.Success )
       {
-        print("Unable to use lightweight segment data: Using standard segment data");
+        //print("Unable to use lightweight segment data: Using standard segment data");
         m_Client.EnableSegmentData();
       }
       else
       {
-        print("Using lightweight segment data");
+        //print("Using lightweight segment data");
       }
     }
     else
     {
-      print("Using standard segment data");
+      //print("Using standard segment data");
       m_Client.EnableSegmentData();
     }
 

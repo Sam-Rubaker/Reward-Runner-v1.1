@@ -27,7 +27,7 @@ public class RecordPosition : MonoBehaviour
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "Testing\\";
+        string subjectID = "testing\\";
         // string subjectFolder = "E:\\Users\\jsamr\\OneDrive - UCB-O365\\Thesis Work\\PositionData\\" + subjectID;
         // C:\\Users\\Vicon-OEM\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\
         //string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
@@ -37,7 +37,7 @@ public class RecordPosition : MonoBehaviour
         //Check to see if the directory already exists and if it does, add 1 to the count
         if (Directory.Exists(subjectFolder)) 
         {
-            Debug.Log("Subject Folder already Exists, adding 1 to count");
+            //Debug.Log("Subject Folder already Exists, adding 1 to count");
             
             //Adding 1 to the count file
             using (var reader = new StreamReader(countPath))
@@ -220,7 +220,7 @@ public class RecordPosition : MonoBehaviour
     }
 
 
-    public class Foo
+    public struct Foo
     {
         public string Time { get; set; }
 
@@ -255,7 +255,7 @@ public class RecordPosition : MonoBehaviour
         // public float RightRz { get; set; }
     }
 
-    public class Foo1
+    public struct Foo1
     {
         public int Count { get; set; }
        

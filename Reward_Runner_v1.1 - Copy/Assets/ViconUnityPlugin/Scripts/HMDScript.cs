@@ -40,7 +40,7 @@ public class HMDScript : BasePoseProvider
         DateTime = DateTime.Replace("/", "_");
         DateTime = DateTime.Replace(":", "_");
         String PathName = Application.dataPath + "/" + DateTime + "_Log.csv";
-        print("Writing log to " + PathName);
+        //print("Writing log to " + PathName);
         m_Log = new StreamWriter(PathName);
         m_Log.AutoFlush = false;
         m_Log.WriteLine("Wall Timer, Oculus Timestamp, Oculus rot QX, Oculus rot QY, Oculus rot QZ, Oculus rot QW, Oculus rot X V, Oculus rot Y V, Oculus rot Z V, Oculus rot X A, Oculus rot Y A, Oculus rot Z A, Oculus pos X, Oculus pos Y, Oculus pos Z, Oculus pos X V, Oculus pos Y V, Oculus pos Z V, Oculus pos X A, Oculus pos Y A, Oculus pos Z A, Vicon Frame Number, Vicon rot QX, Vicon rot QY, Vicon rot QZ, Vicon rot QW, Vicon pos X, Vicon pos Y, Vicon pos Z, Vicon raw rot QX, Vicon raw rot QY, Vicon raw rot QZ, Vicon raw rot QW, Vicon raw Pos X, Vicon raw pos Y, Vicon raw pos Z");
@@ -62,11 +62,11 @@ public class HMDScript : BasePoseProvider
     {
         if (HmdName == "" )
         {
-            Debug.LogError("Headset tracked in Vicon not provided.");
+            //Debug.LogError("Headset tracked in Vicon not provided.");
         }
         if ( Client == null )
         {
-            Debug.LogError(string.Format("No data stream client available."));
+            //Debug.LogError(string.Format("No data stream client available."));
         }
         if (Log)
         {
@@ -274,13 +274,13 @@ public class HMDScript : BasePoseProvider
             else
             {
                 output = new Pose(Adapt(m_LastGoodPose.Position), Adapt(m_LastGoodPose.Rotation));
-                Debug.LogWarning("using last postion");
+                //Debug.LogWarning("using last postion");
                 return PoseDataFlags.Position | PoseDataFlags.Rotation;
             }
         }
         catch (DllNotFoundException ex)
         {
-            Debug.LogError(string.Format("XR must be enabled for this project to use the HMD fusion script: Error {0}", ex.Message));
+            //Debug.LogError(string.Format("XR must be enabled for this project to use the HMD fusion script: Error {0}", ex.Message));
             output = new Pose( Adapt( m_LastGoodPose.Position), Adapt(m_LastGoodPose.Rotation) );
             return PoseDataFlags.NoData;
         }

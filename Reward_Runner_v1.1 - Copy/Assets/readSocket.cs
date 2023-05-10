@@ -18,6 +18,7 @@ public class readSocket : MonoBehaviour
      TcpListener listener;
      float tmSpeed;
     // float countdownTimer;
+
      Stopwatch timePer = new Stopwatch();
      float timeSince;
 
@@ -29,7 +30,7 @@ public class readSocket : MonoBehaviour
      {
           listener = new TcpListener (IPAddress.Parse("127.0.0.1"),55001);
           listener.Start();
-          UnityEngine.Debug.Log("is listening");
+          //UnityEngine.Debug.Log("is listening");
           timePer.Start();
      }
 
@@ -68,7 +69,7 @@ public class readSocket : MonoBehaviour
                     {
                          if (value == 42)
                          {
-                              UnityEngine.Debug.Log("Start Countdown timer");
+                              //UnityEngine.Debug.Log("Start Countdown timer");
                               GameObject countdownTimer = GameObject.FindGameObjectWithTag("Timer");
                               countdownTimer.SetActive(false);
                          }
@@ -79,7 +80,7 @@ public class readSocket : MonoBehaviour
                     }
                     else
                     {
-                         UnityEngine.Debug.Log("Could not parse float value");
+                         //UnityEngine.Debug.Log("Could not parse float value");
                     }
                }
           }
