@@ -1218,8 +1218,8 @@ MonoBehaviour:
   QuadPosition: {x: 0, y: 0, z: 0}
   QuestPosition: {x: 0, y: 0, z: 0}
   newCount: 0
-  subject: testing
-  trial: test
+  subject: MMM
+  trial: WASH
   highRewardLog: 0
   medRewardLog: 0
   lowRewardLog: 0
