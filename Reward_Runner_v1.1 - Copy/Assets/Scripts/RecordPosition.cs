@@ -17,8 +17,11 @@ public class RecordPosition : MonoBehaviour
     // public Vector3 RightShoePosition;
     // public Vector3 RightShoeRotation;
 
-    public int newCount = 0;
-    public string sessionFolder;
+    public int newCount = 1;
+    string sessionFolder;
+    public string subject;
+    public string trial;
+
     public int highRewardLog;
     public int medRewardLog;
     public int lowRewardLog;
@@ -27,11 +30,11 @@ public class RecordPosition : MonoBehaviour
     void Start()
     {
         //Create a new directory for each subject if one does not already exist
-        string subjectID = "testing\\";
+        string slashes = "\\";
         // string subjectFolder = "E:\\Users\\jsamr\\OneDrive - UCB-O365\\Thesis Work\\PositionData\\" + subjectID;
         // C:\\Users\\Vicon-OEM\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\
         //string subjectFolder = "F:\\Users\\Public\\Documents\\Unity\\Dec10ObstacleRunner\\Working Box Runnerv2\\Assets\\PositionData\\" + subjectID;
-        string subjectFolder = "C:\\Users\\Vicon-OEM\\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\" + subjectID;
+        string subjectFolder = "C:\\Users\\Vicon-OEM\\Documents\\GitHub\\Reward-Runner-v1.1\\Reward_Runner_v1.1 - Copy\\Assets\\PositionData\\" + subject + slashes;
         string countPath = subjectFolder + "count.csv";
         
         //Check to see if the directory already exists and if it does, add 1 to the count
@@ -132,7 +135,7 @@ public class RecordPosition : MonoBehaviour
         };
 
         // Create new session folders
-        string counter = ("Run" + newCount.ToString() + ".csv");
+        string counter = (subject + newCount.ToString() + trial + ".csv");
         using (var writer = new StreamWriter(subjectFolder + counter))
         using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             csv.WriteRecords(records);
