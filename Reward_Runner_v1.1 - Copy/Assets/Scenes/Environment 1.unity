@@ -904,9 +904,9 @@ MonoBehaviour:
   - {fileID: 8860905888765781954, guid: b695c242169bffe4ea4fb10e601371a6, type: 3}
   - {fileID: 8860905888765781954, guid: b695c242169bffe4ea4fb10e601371a6, type: 3}
   OneForRichTwoForPoor: 0
-  objectSpacing: 30
-  shellVisibleRange: 20
-  rewardVisibleRange: 10
+  objectSpacing: 40
+  shellVisibleRange: 30
+  rewardVisibleRange: 20
   mesh: {fileID: 4300016, guid: 3f4d2118f6a772542a1635ef5bfa6982, type: 3}
   meshfilter: {fileID: 282622449}
 --- !u!1 &258683735
@@ -1179,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23363714592162624, guid: 426b44a7575f71e479fab4f4e8431989, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426b44a7575f71e479fab4f4e8431989, type: 3}
 --- !u!33 &282622449 stripped
@@ -1218,8 +1222,8 @@ MonoBehaviour:
   QuadPosition: {x: 0, y: 0, z: 0}
   QuestPosition: {x: 0, y: 0, z: 0}
   newCount: 0
-  subject: MMM
-  trial: WASH
+  subject: BJL
+  trial: 8WASH
   highRewardLog: 0
   medRewardLog: 0
   lowRewardLog: 0

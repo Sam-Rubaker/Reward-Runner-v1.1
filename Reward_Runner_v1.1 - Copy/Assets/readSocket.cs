@@ -44,6 +44,14 @@ public class readSocket : MonoBehaviour
        
           // Move the environment forward, 
           this.transform.position += Vector3.right * tmSpeed * timeSince / 955.0f;
+          // if (tmSpeed == 0)
+          // {
+          //      tmSpeed = 2;
+          // }
+          // this.transform.position += Vector3.right * (2.0f - tmSpeed) * timeSince / 955.0f;
+
+
+
           timePer.Restart();
 
           if(!listener.Pending())                        
